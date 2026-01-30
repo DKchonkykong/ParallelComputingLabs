@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\806395\\source\\repos\\Lab1_VectorsAdd\\",
+  "WorkspaceRootPath": "C:\\Users\\806395\\OneDrive - hull.ac.uk\\GitHub\\ParallelComputingLabs\\CUDALabs\\Lab1_VectorsAdd\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{68CBE4C8-63D0-7DA7-D430-5BA2C514C9E4}|Lab1_VectorsAdd\\Lab1_VectorsAdd.vcxproj|C:\\Users\\806395\\source\\repos\\Lab1_VectorsAdd\\Lab1_VectorsAdd\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{68CBE4C8-63D0-7DA7-D430-5BA2C514C9E4}|Lab1_VectorsAdd\\Lab1_VectorsAdd.vcxproj|C:\\Users\\806395\\OneDrive - hull.ac.uk\\GitHub\\ParallelComputingLabs\\CUDALabs\\Lab1_VectorsAdd\\Lab1_VectorsAdd\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{68CBE4C8-63D0-7DA7-D430-5BA2C514C9E4}|Lab1_VectorsAdd\\Lab1_VectorsAdd.vcxproj|solutionrelative:Lab1_VectorsAdd\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
@@ -14,24 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "kernel.cu",
-              "DocumentMoniker": "C:\\Users\\806395\\source\\repos\\Lab1_VectorsAdd\\Lab1_VectorsAdd\\kernel.cu",
+              "DocumentMoniker": "C:\\Users\\806395\\OneDrive - hull.ac.uk\\GitHub\\ParallelComputingLabs\\CUDALabs\\Lab1_VectorsAdd\\Lab1_VectorsAdd\\kernel.cu",
               "RelativeDocumentMoniker": "Lab1_VectorsAdd\\kernel.cu",
-              "ToolTip": "C:\\Users\\806395\\source\\repos\\Lab1_VectorsAdd\\Lab1_VectorsAdd\\kernel.cu",
+              "ToolTip": "C:\\Users\\806395\\OneDrive - hull.ac.uk\\GitHub\\ParallelComputingLabs\\CUDALabs\\Lab1_VectorsAdd\\Lab1_VectorsAdd\\kernel.cu",
               "RelativeToolTip": "Lab1_VectorsAdd\\kernel.cu",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAACqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2026-01-30T09:19:46.541Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
