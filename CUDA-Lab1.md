@@ -1,47 +1,44 @@
-# Main Quest 1
+# CUDA Lab 1: Getting Started with CUDA 
 
-[← Back to Main README](README.md) | [Next: Main Quest 2 →](main-quest-2.md)
+
+[← Back to Main README](README.md) | [Next: Lab 2 →](Lab-2.md)
 
 
 ## SMART Objectives
-
-
-* Create a simple game using the MonoGame framework that compiles and runs successfully.
-* Implement a screen management system using an enumerated type to switch between at several different game states (flash screen, title screen, credits screen, game screen, pause screen, gameover screen).
-* Explain and demonstrate the role of the MonoGame Content Builder, showing how it compiles assets into .xnb files.
-* Inherit from the Game class and correctly implement a class that extends its functionality.
-* Override core game loop methods (Initialise, LoadContent, Update and Draw) and explain when each is called during execution.
-* Process keyboard input to control a visible change in the game  (changing the screen colour).
-* Render a coloured rectangle on the screen using MonoGame’s drawing methods.
-* Display text on the screen and verify correct rendering in the game window.
-* Position both a coloured rectangle and text on screen using screen coordinate values to demonstrate control over placement.
-* Load a texture using the MonoGame Content Pipeline, and display it at a specified position on the screen.
-* Process mouse input to detect clicks on a rectangle and trigger a visible response
-* Record your reflections and submit your code to your GitHub repository.
+Set up a CUDA project in Visual Studio 2022 using the CUDA 12.9 Runtime.
+2. Analyze the Host-Device Programming Model: Understand the distinction between 
+CPU (Host) and GPU (Device) execution.
+3. Master Memory Management: Learn how to allocate GPU memory (cudaMalloc) and 
+transfer data (cudaMemcpy).
+4. Understand Kernel Execution: Learn how to launch kernels and map threads to data 
+using threadIdx.x.
+5. Implement Error Handling: Understand the standard pattern for catching CUDA errors.
 
 ## Completed Tasks
 
-Currently I have implemented an enumerated type switching to different game states like flash screen, title screen, made a timer, processed mouse input which causes for the rectangle to dissapear and rendered a texture on the screen by using the monoGame content pipeline furthermore, implemented a high score system and made it all link up when you press the rectangle to go there and then to the title screen. 
+<img width="1115" height="628" alt="Screenshot 2026-01-30 094010" src="https://github.com/user-attachments/assets/9d979e31-4f85-44fa-9826-b1b16dcb01d6" />
+This is what it looked like originally without the code alterations and with the helpers. 
 
+<img width="1115" height="628" alt="Screenshot 2026-01-30 094029" src="https://github.com/user-attachments/assets/b9f57e89-3099-468f-b606-600132547f65" />
+This is what happens when it does the error checking for when the cudaSetDevice(0) is instead 100
+
+
+<img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/393eddd8-803b-41b3-8312-a1a19950d48f" />
+
+This is after I have refactored the code to remove the helpers. This is with the array size of 5.
+
+<img width="1115" height="628" alt="Screenshot 2026-01-30 110700" src="https://github.com/user-attachments/assets/3571f075-1396-4f74-8a81-4d36f7dfb467" />
+
+This is with an array size greater than 5 that being 1024. 
 ## Reflection
 
-<img width="802" height="519" alt="Screenshot 2025-09-30 083431" src="https://github.com/user-attachments/assets/40ca1c82-e2df-4a73-bf21-a1dc6d471039" />
+I have now done the introduction to CUDA. At first I didn't fully understand what exactly parallel computing was and what the difference between CPU and GPU is. However, now I understand what what CUDA is at least and how to use it and in this scenario is for calculating large arrays of numbers via parallelism. I had a few issues when trying to copy back the C array for step 4 chaning device to instead be hosting but in the end I managed to fix it and have it output correctly to the console.
 
-This is the main thing you see first (flash screen) so you press the logo and depending at what time you do it at it gives you a score. It took me awhile to implement the code for it since it was a bit odd to use the different flash screens but I think I got used to it I also had some issues with the game screen not displaying correctly but I then realised that I have forgotten to add the rectangle and timer variables in the draw method for game screen. I also realised later on that it was supposed to be one rectangle with a border but I only realised after the fact that I did most of the work including the extra challenge for it. I think I will definetly need to look at it again to implement this. 
+Overall, I sort of now understand what CUDA is and how it can be used but I do feel like I need to get better aquainted with it in the future and understand more of what everything is doing.
 
-<img width="804" height="527" alt="image" src="https://github.com/user-attachments/assets/05f48754-981e-4de7-af43-5a5798278005" />
-
-Credits screen is quite similar to the one in the labs, text shadow and all. Although, I did forget a few times to build the sprite font in the mono game loader thing but it does display your score in a linear fashion untill you hit 10s and if it's more than that it will give you an automatic game over with no score. I had a few issues with the timer not resetting and I am not exactly sure how I got it fixed. I have also implemented the extra challenge that being if you get a high score you get a congratulatory message that took a while to work mainly because i had to re-remember how to load files and stuff. 
-
-<img width="804" height="527" alt="image" src="https://github.com/user-attachments/assets/8e3a8329-d651-40f3-a30a-fc342bde3bb2" />
-
-This is the title screen but I have managed to fix it via messing around with the order list of the different game screens. it also displays the high scores from the high score.txt file it was originally in the game overscreen but I reread the extra challenge and I realised I have done it wrong so now it's in the correct position (I also realised that I've should've done copy if newer on the txt file it would have saved a lot of time). 
-Final thoughts about the intro of monogame is that it's fairly interesting even if it was a bit hard to grasp in the begining like in some ways it does reminds me of graphics programing (probably because we are using openTK for the drawing of graphics) and how that draws graphics although instead of being done in seperate classes and inherited through them, monogame does it through the enum variables that being titleScreen, GameScreen etc. and you have that done through the update method. I haven't used monogame before but i have used game engines such as unity and it both feels the same and it doesn't. Monogame feels oddly enough like a more barebones version of unity or godot. 
-
-## Beyond the Lab (Optional)
 
 
 **Navigation:**
 - [Main README](README.md)
-- [Main Quest 2](main-quest-2.md)
+- [Main Quest 2](Lab-2.md)
 
