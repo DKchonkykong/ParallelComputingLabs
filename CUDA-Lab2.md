@@ -32,8 +32,11 @@ and it now gave me back this result
 
 
 Task 6 - Matrix Addition (Optional):
+Didn't bother doing this at the moment might do it later who knows.
+
 
 ## Reflection
+I think it was interesting using the multiple threads and blocks for 1D and 2D there was some differences in performance as well depending on how many were used. At first I had some issues trying to see if the changes in performance when doing the 1D threads and 2D threads were correct but later I managed to fix it and actually make it work. Overall, I sort of understand how to use threads for CUDA
 
 
 
