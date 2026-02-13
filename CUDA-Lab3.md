@@ -17,12 +17,39 @@ synchronize threads, and calculate subtotals on the GPU.
 
 Exercise 1: CPU-Only Solution in C++ (Baseline)
 
+
 Exercise 1.1 CPU‑Only Implementation
 
+this is the code i will be using as the dotproduct this is a base line for when i need to use it later
+```
+int dotProduct(int*a, int*b, int n)
+{
+	int sum = 0;
+    for (int i = 0; i < n; i++) 
+    {
+		sum += a[i] * b[i];
+    }
+    return sum;
+}
+```
+
+
 Exercise 1.2: CPU+GPU Solution in CUDA
+I am now going to make use of it for the GPU so now it actually does something 
+
+```
+__global__ void multiply(int* c, int* a, int* b)
+{
+	int i = blockIdx.x * blockDim.x + threadIdx.x;
+    c[i] = a[i] * b[i];
+}
+```
 
 
 Exercise 2: Vector Dot-Product using Unified Memory
+
+
+
 
 
 Exercise 2.1: Dynamic Managed Memory
