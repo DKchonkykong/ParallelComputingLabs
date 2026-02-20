@@ -20,8 +20,11 @@ Exercise 1: CPU-Only Solution in C++ (Baseline)
 
 Exercise 1.1 CPU‑Only Implementation
 
-this is the code i will be using as the dotproduct this is a base line for when i need to use it later
+CODE
+
 ```
+int i = blockIdx.x * blockDim.x + threadIdx.x;
+
 int dotProduct(int*a, int*b, int n)
 {
 	int sum = 0;
@@ -32,10 +35,15 @@ int dotProduct(int*a, int*b, int n)
     return sum;
 }
 ```
+REFLECTION
+
+In this exercise I have implemented the dot product however it's on the CPU and it is a for loop.
+This is more so a baseline for the other exersices I want to use. This makes it easier to check if the later tasks are correct or not and it helps clarify the structure of what I want to do before adding stuff like parallism and having the GPU use it.
 
 
 Exercise 1.2: CPU+GPU Solution in CUDA
-I am now going to make use of it for the GPU so now it actually does something 
+
+CODE
 
 ```
 __global__ void multiply(int* c, int* a, int* b)
@@ -44,6 +52,12 @@ __global__ void multiply(int* c, int* a, int* b)
     c[i] = a[i] * b[i];
 }
 ```
+
+
+REFLECTION
+In this exercise I am now using the dot product and the GPU is processing it through the threads and blocks used meaning through this that I can multiply it and process each product e.g., ```c[i] = a[i] * b[i];```. Although since you are coping the entire vector result back to the gpu it is rather inefficient and not great for larger data sets.
+
+
 
 
 Exercise 2: Vector Dot-Product using Unified Memory
@@ -70,8 +84,8 @@ Dot product (sum): 550
 ```
 REFLECTION
 
-Code bits I basically changed it to use this instead of cudaMalloc from before and use the values from the dotProduct
-
+In this exercise I have decided to not use cudaMalloc and cuda memcpy but instead used Cuda malloc managed. What this does is that it uses unified memory making the CPU and GPU be able to acess the same memory pointer which simplifies the code by not having the whole hosting memory transfer bits. 
+After launching the kernel I made sure the GPU was synchronized by using the cuda syncronise method for it making sure the GPU finished executing correctly.
 
 Exercise 2.2: Static Managed Memory 
 
@@ -90,41 +104,31 @@ __device__ __managed__ int c[5];
 ```
 REFLECTION
 
-Basically now I have declared values and I don't need to use cudaMalloc since i am using static memory instead.
+In this exercise I have made it so you don't need the need to dynamic allocation, and instead have the arrays be able to be acessed by the host and the device respectavily and automatically.
+
+This simplified the memory model for cuda and it's good for smaller tasks to be processed.
+
+
 
 Exercise 3: Vector Dot-Product using Shared Memory
 
 OUTPUT
-```
-=== Configuration 1: <<<1, 8>>> ===
-Subtotals: 2040
-Final dot product: 2040
 
-=== Configuration 2: <<<2, 4>>> ===
-Subtotals: 300 1740
-Final dot product: 2040
-
-=== Configuration 3: <<<4, 2>>> ===
-Subtotals: 50 250 610 1130
-Final dot product: 2040
-```
 
 CODE
-
-```
-
-```
 
 
 
 
 REFLECTION
-
+Wasn't able to do this since I didn't have enough time to finish it 
 
 
 ## Reflection
 
-Not here sadly not yet anyway...
+Overall this lab taught me how to make the dot product for the CPU and how to change the cuda malloc to instead use static memory.
+And having a hybrid of both CPU and GPU be used in this.
+Although I wasn't able to finish the last exercise due to a lack of time sadly. 
 
 ## Beyond the Lab (Optional)
 
