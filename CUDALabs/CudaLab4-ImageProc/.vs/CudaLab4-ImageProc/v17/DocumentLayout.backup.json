@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\806395\\source\\repos\\CudaLab4-ImageProc\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D65FD5E6-9DBC-0F91-C5E0-1337EAD4CC4D}|CudaLab4-ImageProc\\CudaLab4-ImageProc.vcxproj|C:\\Users\\806395\\OneDrive - hull.ac.uk\\Downloads\\ImageProcess_cuda.cu||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D65FD5E6-9DBC-0F91-C5E0-1337EAD4CC4D}|CudaLab4-ImageProc\\CudaLab4-ImageProc.vcxproj|C:\\Users\\806395\\OneDrive - hull.ac.uk\\Downloads\\ImageProcess_cuda.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ImageProcess_cuda.cu",
+              "DocumentMoniker": "C:\\Users\\806395\\OneDrive - hull.ac.uk\\Downloads\\ImageProcess_cuda.cu",
+              "RelativeDocumentMoniker": "..\\..\\..\\OneDrive - hull.ac.uk\\Downloads\\ImageProcess_cuda.cu",
+              "ToolTip": "C:\\Users\\806395\\OneDrive - hull.ac.uk\\Downloads\\ImageProcess_cuda.cu*",
+              "RelativeToolTip": "..\\..\\..\\OneDrive - hull.ac.uk\\Downloads\\ImageProcess_cuda.cu*",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwD4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-02-27T09:12:59.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ImageProcess_cuda.cpp",
+              "DocumentMoniker": "C:\\Users\\806395\\OneDrive - hull.ac.uk\\Downloads\\ImageProcess_cuda.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\OneDrive - hull.ac.uk\\Downloads\\ImageProcess_cuda.cpp",
+              "ToolTip": "C:\\Users\\806395\\OneDrive - hull.ac.uk\\Downloads\\ImageProcess_cuda.cpp",
+              "RelativeToolTip": "..\\..\\..\\OneDrive - hull.ac.uk\\Downloads\\ImageProcess_cuda.cpp",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-02-27T09:12:45.363Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
