@@ -47,16 +47,41 @@ Loaded 'lena_bw.pgm', 512 x 512 pixels
 
 ### REFLECTION
 
-
-
+It was a bit hard to sort out what I needed to do for the files to work it was partly because I didn't fully understand it.
+More info here.
 
 
 ## Exercise 2: Understanding Texture Memory & Pixels
 
 
 
-### REFLECTION
+Output
 
+Blue
+<img width="498" height="528" alt="image" src="https://github.com/user-attachments/assets/bc1612a1-abd8-4cd4-a881-a0d3a127b013" />
+
+Red
+<img width="498" height="528" alt="image" src="https://github.com/user-attachments/assets/fafb077f-8cf2-4147-8665-2f3110cca227" />
+
+
+Green
+<img width="498" height="528" alt="image" src="https://github.com/user-attachments/assets/4a3b6ab3-32cf-4836-bd9a-6240023bc440" />
+
+
+
+Code
+```
+// Read from texture at (u,v). Returns a float 0.0 to 1.0
+float c = tex2D<float>(texObj, u, v)
+d_output[i] = make_uchar4(c* 0xff, c, c, 0);
+```
+This basically is similar to graphics programming for instead it's using CUDA and OpenGL. So it is turning the monochrome image into a specific colour e.g., blue.
+
+
+
+
+### REFLECTION
+The image is now blue 
 
 ## Exercise 3: Geometric Image Transformations
 
