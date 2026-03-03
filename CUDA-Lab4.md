@@ -86,7 +86,138 @@ The image is now blue
 ## Exercise 3: Geometric Image Transformations
 
 
+Transform
+
+<img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/c479d36e-7c67-433c-b8f0-cac682bf6c29" />
+
+
+Code
+```
+extern "C" void render(int width, int height,  dim3 blockSize, dim3 gridSize,
+     uchar4 * output, float tx, float ty) {
+
+    float scale = 1, cx = 0, cy = 0;
+
+        d_render << <gridSize, blockSize >> > (output, width, height, tx, ty, 1,
+            0, 0, rgbaTexdImage);
+
+
+    getLastCudaError("kernel failed");
+```
+
+it is supposed to move the image around doesn't really do that? at least for transform 
+
+<img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/39b7da4b-e064-44c6-a43d-33067be73d82" />
+
+
+Managed to get it working via using the texture objects api
+I think it worked because it was newer and you can manage multiple textures?
+
+CODE
+```
+#include <cuda_runtime.h>
+#include <helper_cuda.h>
+
+typedef unsigned int uint;
+typedef unsigned char uchar;
+
+// Texture object
+cudaTextureObject_t texObj = 0;
+cudaArray* d_imageArray = 0;
+
+// CUDA kernel using texture object
+__global__ void d_render(uchar4* d_output, uint width, uint height, 
+                         cudaTextureObject_t texObject, float tx, float ty) {
+    uint x = blockIdx.x * blockDim.x + threadIdx.x;
+    uint y = blockIdx.y * blockDim.y + threadIdx.y;
+
+    if (x < width && y < height) {
+        // Apply translation using float2
+        float2 T = make_float2(tx, ty);
+        float u = x + T.x;
+        float v = y + T.y;
+
+        // Read pixel color with translated coordinates
+        float c = tex2D<float>(texObject, u, v);
+
+        // Convert to grayscale output
+        uchar intensity = (uchar)(c * 255.0f);
+        d_output[y * width + x] = make_uchar4(intensity, intensity, intensity, 255);
+    }
+}
+
+extern "C" void initTexture(int imageWidth, int imageHeight, uchar* h_data) {
+    // Create channel descriptor
+    cudaChannelFormatDesc channelDesc = cudaCreateChannelDesc(8, 0, 0, 0, 
+                                                               cudaChannelFormatKindUnsigned);
+
+    // Allocate CUDA array
+    checkCudaErrors(cudaMallocArray(&d_imageArray, &channelDesc, imageWidth, imageHeight));
+
+    // Copy data to array
+    checkCudaErrors(cudaMemcpyToArray(d_imageArray, 0, 0, h_data, 
+                                       imageWidth * imageHeight * sizeof(uchar), 
+                                       cudaMemcpyHostToDevice));
+
+    // Create resource descriptor
+    cudaResourceDesc resDesc;
+    memset(&resDesc, 0, sizeof(resDesc));
+    resDesc.resType = cudaResourceTypeArray;
+    resDesc.res.array.array = d_imageArray;
+
+    // Create texture descriptor
+    cudaTextureDesc texDesc;
+    memset(&texDesc, 0, sizeof(texDesc));
+    texDesc.addressMode[0] = cudaAddressModeClamp;
+    texDesc.addressMode[1] = cudaAddressModeClamp;
+    texDesc.filterMode = cudaFilterModeLinear;
+    texDesc.readMode = cudaReadModeNormalizedFloat;
+    texDesc.normalizedCoords = 0;  // Use pixel coordinates
+
+    // Create texture object
+    checkCudaErrors(cudaCreateTextureObject(&texObj, &resDesc, &texDesc, NULL));
+}
+
+extern "C" void freeTexture() {
+    if (texObj) {
+        checkCudaErrors(cudaDestroyTextureObject(texObj));
+        texObj = 0;
+    }
+    if (d_imageArray) {
+        checkCudaErrors(cudaFreeArray(d_imageArray));
+        d_imageArray = 0;
+    }
+}
+
+extern "C" void render(int width, int height, dim3 blockSize, dim3 gridSize, 
+                       uchar4* d_output, float tx, float ty) {
+    // Launch kernel with translation parameters
+    d_render<<<gridSize, blockSize>>>(d_output, width, height, texObj, tx, ty);
+    
+    // Check for errors
+    getLastCudaError("kernel failed");
+}
+```
+
+this is how it looks as is
+<img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/282f94be-3443-4197-9470-70ac916fd3f1" />
+
+this is how it looks when I was messing around with the keyboard controlls
+<img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/60df21ce-cc51-4dbd-bdea-ca0b929a6d41" />
+
+so now when I move the texture around with WASD it also corespondidly moves the image vectors around 
+
+Scale
+
+Going to do scale now and then rotate
+
+Rotate
+
 ### REFLECTION
+
+
+
+
 
 Exercise 4: Image smoothing (optional)
 
