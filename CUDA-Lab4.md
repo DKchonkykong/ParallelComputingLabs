@@ -209,9 +209,49 @@ so now when I move the texture around with WASD it also corespondidly moves the 
 
 Scale
 
-Going to do scale now and then rotate
+This is how it looks for scale fully zooomed in and zoomed out
+
+<img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/38acc3fe-56f6-49eb-86f5-96ce315d5a4e" />
+
+
+
+<img width="1115" height="628" alt="Screenshot 2026-03-03 134547" src="https://github.com/user-attachments/assets/ac83f2f9-e7e1-4840-986f-bc7216b6fbb0" />
+
+Code
+```
+
+```
+
 
 Rotate
+
+<img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/4de20d6b-f92f-4a36-8496-925be7fc2199" />
+Code
+```
+
+```
+Position by orgin
+Scale by orgin
+Rotate by orgin 
+<img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/a550e73e-d9e6-4d22-9c2e-689f98003887" />
+
+
+This is how it looks like with all of those three things done
+Code
+```
+
+```
+
+This is how it looks scaling something by location and then translate it by vectors
+
+<img width="1426" height="631" alt="image" src="https://github.com/user-attachments/assets/c3817881-4fb3-4793-940d-0ee26f24ff61" />
+
+Code
+```
+
+```
+
+
 
 ### REFLECTION
 
