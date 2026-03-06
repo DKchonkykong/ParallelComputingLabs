@@ -19,7 +19,7 @@ Exercise 1: CPU Implementation (Baseline)
 
 ### Output
 
-So when I first ran it I got this error and these values ```Run-Time Check Failure #2 - Stack around the variable C was corrupted````
+So when I first ran it I got this error and these values  ```Run-Time Check Failure #2 - Stack around the variable C was corrupted```
 
 ```
 Result matrix of C:
@@ -83,7 +83,9 @@ void MatrixMultiplyCPU(float* A, float* B, float* C, int widthA, int heightA, in
 
 ```
 
-Ended up fixing it by this
+Ended up fixing it by editing the code to instead run like this:
+
+
 Output
 
 ```
@@ -151,7 +153,11 @@ void MatrixMultiplyCPU(float* A, float* B, float* C, int widthA, int heightA, in
 
 ### Reflection
 
-It now works I wasn't sure what I was doing oops.
+In this execisce we had to implement matrix multiplication via the CPU. The first try that I did this my program wasn't written the best and I had a few memory corruptions this was due to the matrix being indexed incorrectly and it's dimenstions being too small as well. In the second output and code section of task one I had it working correctly. This more so proved as a baseline for the CPU in how it works and later on the line I will showcase the GPU version and compare the difference in terms of performance between the two. 
+
+
+
+
 
 Exercise 2: Single-Block CUDA Implementation
 
@@ -244,7 +250,10 @@ int main()
 
 ### Reflection
 
-Did this it worky it is different to task 1 where I had to do it via cpu now we doin on the GPU similar to other execises epic 
+In exercise 2 we are doing something similar to the previous task however we are calculating a trhead block of matrixes through the GPU.
+The way that it works is we are using threadIdx.y for the row and threadIdx.x for the columns and they form a matrix of numbers. But instead of using outer loops like in the CPU we are instead using parallel GPU threads. As you can see the output is identical to the CPU showcasing that it indeed works.
+
+
 
 Exercise 3: Multi-Block CUDA Implementation (2D
 Grid)
@@ -361,7 +370,8 @@ Expected value per element: 1024.0
 ```
 ### Reflection
 
-From what I understand this is similar to exercise two ut instead we are using more than one block. 
+In exercise 3 we are extending the previous task by instead using multiple blocks instead of one and therefore using a 2D grid to achieve this. How this was made was that we are using the threadIdx.y and threadIdx.x but also the blocks variants like blockIdx, blockDim etc. This threfore enables a thread to calculate more than one matrix allowing to calculate even larger matricies compared to our single block version in exercise 2.
+
 
 Exercise 4: Performance Comparison (Optional)
 
@@ -518,7 +528,13 @@ Results match: YES
 
 ### Reflection
 
-Tested it now it is quite interesting the difference between both of them tbh
+This is more so about comparing the difference between the CPU calculating a 1024x1024 matrix vs the GPU. 
+In exercise 4 it showedcased the performance of these two and it turns out that the GPU is 200x faster than CPU. 
+it is thanks to the parallism that we have on the GPU side that made it faster to process it all compared to the CPU
+
+All in all, this is kind of similar to a previous module I did in second year being graphics programming wherein we had to use vectors and matricies in order to render shapes in OpenGL or other similar shaders although this is now done through CUDA instead and it's a bit differently typed but it is still quite similar e.g., freeing up memory, allocating memory, creating matrixes etc. 
+
+
 
 ## Beyond the Lab (Optional)
 
