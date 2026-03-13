@@ -22,22 +22,24 @@ For whatever reason it didn't let me run it on other computers even despite that
 
 original version:
 
+![alt text](<Screenshot 2026-03-13 115022.png>)
 
 green version:
 
+![alt text](<Screenshot 2026-03-13 115208.png>)
 
 ```
 make_uchar(0,0, 0xff, 0); //red
 ```
 
 Reflection:
-It is similar to last week lab but instead we are just drawing colours and patterns instead of just an image. It is similar to how OpenGL does it but with the use of CUDA. 
+It is similar to last week lab but instead we are just drawing colours and patterns instead of just an image. It is similar to how OpenGL does it but with the use of CUDA. It just took me longer to set up due to technical difficulties but once I had the lab 4 sheet working correctly it was easier to do task 1.
 
 Exercise 2: Drawing a checkboard in CUDA
 
 Output
 
-
+![alt text](<Screenshot 2026-03-13 115629.png>)
 
 Code
 ```
@@ -65,11 +67,15 @@ __global__ void d_render(uchar4* d_output, uint width, uint height) {
 
 Reflection
 
-I now editied it so instead it has a checkerboard pattern
+I now editied it so instead it has a checkerboard pattern. The major difference is taht we are using a tile size for two different ```make_uchar4``` one being black and the other being red which then represents our checkerboard pattern. This is quite similar to how other programs in openGL draw images or objects although it is usually done in c# through the vec keyword.
 
 Exercise 3: Drawing a Circle
 
-OUTPUT
+OUTPUT original version
+
+![alt text](<Screenshot 2026-03-13 115929.png>)
+
+
 
 draws a circle code normal version
 ```
@@ -102,6 +108,15 @@ Output
 
 small vs full screen
 
+small
+
+![alt text](<Screenshot 2026-03-13 120100.png>)
+
+
+full screen
+
+![alt text](<Screenshot 2026-03-13 120117.png>)
+
 
 
 Code
@@ -112,17 +127,26 @@ Code
 
 Reflection
 
+At first I ran the circle code and it didn't look too good since I was doing it throguh screenspace but after now doing it in mathematical space it looked a lot better. The way that circle was drawn was trhough calculating the radius and then drawing a green circle for example this is quite similar to how to draw other 2D primitives in c# in openGL. 
+
 
 
 Exercise 4: Drawing the Mandelbrot and Julia Sets
 
 Output Mandelbrot vs julia
 
-Mandelbrot
+Mandelbrot small vs full screen
+
+![alt text](image-2.png)
 
 
+![alt text](image-1.png)
 
-julia
+julia small vs full screen
+
+![alt text](<Screenshot 2026-03-13 120516.png>)
+
+![alt text](image.png)
 
 
 code
@@ -176,11 +200,14 @@ __global__ void d_render(uchar4* d_output, uint width, uint height) {
 }
 ```
 
+Reflection
 
+This is a bit different since I am instead calculating a mandelbrot or julia and it is a bit different since we have to calculate different x and y positions. This is quite similar to OpenGL but a bit different.
 
 
 ## Reflection
 
+Overall, despite the technical issues that I had at the start of the lab I didn't find this lab all to bad and I now know how to use cuda for OpenGL more.
 
 
 ## Beyond the Lab (Optional)
