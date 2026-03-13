@@ -1,4 +1,4 @@
-# CUDA Lab 6
+# CUDA Lab 6 - Procedural Textures
 
 [Cuda lab 5](CUDA-Lab5.md) | [Next: Cuda lab 7  →](CUDA-Lab7.md)
 
@@ -16,6 +16,12 @@ World Space (mathematical units).
 ## Completed Tasks
 
 Exercise 1: Setting up the Virtual Canvas
+
+Ok so this is how it looks with the canvas working.
+For whatever reason it didn't let me run it on other computers even despite that I was working on the lab 4 and tried to redo it again. it kept saying that certiain files couldn't be acesses e.g., ```#include <helper_gl.h>``` or ```#include <GL/freeglut.h>```
+and I am unsure why 
+
+
 
 Exercise 2: Drawing a checkboard in CUDA
 
