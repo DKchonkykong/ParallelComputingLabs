@@ -44,16 +44,17 @@ __global__ void d_render(uchar4* d_output, uint width, uint height) {
 
 ## Reflection
 
-This is similar to what we have done before for the circle but instead in a specific canvas 
+This is similar to what we have done before for the circle but instead in a specific size of a canvas -1 to 1. So I reused some of the code from exercise 4 lab 6. 
+It is interesting since it is similar to other OpenGL programs I have done but it is a bit differently written since it is in CUDA.
 
    
 Exercise 2. Write a simple ray caster 
 
-Image here 
-```
+OUTPUT Image
+
 <img width="498" height="528" alt="image" src="https://github.com/user-attachments/assets/63a12471-a8fb-4ba1-9ff1-bfbeb03f0f62" />
 
-```
+
 
 Code from the cu for rendering stuff
 
@@ -590,7 +591,8 @@ extern "C" void render(int width, int height, dim3 blockSize, dim3 gridSize, uch
 
 ## Reflection
 
-
+So now in exercise two instead of having to load in different shapes and see how they are loaded in we are doing raycasting which is similar to how it was in graphics programming where you had a camera and views of the primitives but the way it is calculated is more similar to entity system creation since we are making a new sphereas part of a list and they have different x, y and z coordinates. When loading the two circles in (one big one for the ground) it functioned pretty well. However, when I tried to load in 10 spheres some spheres ended up missing this could be that it is clipping through the model view matrix like [1, -1] or being too similar to other spheres in objects. 
+Due to the lack of time I wasn't able to fully fix it but it was interesting to see how raycasting works in CUDA.
 
 ## Beyond the Lab (Optional)
 
